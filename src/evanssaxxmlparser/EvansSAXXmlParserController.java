@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 
 
 public class EvansSAXXmlParserController implements Initializable {
@@ -24,13 +25,15 @@ public class EvansSAXXmlParserController implements Initializable {
     @FXML Button fileChooseButton;
     @FXML Button parseButton;
     
-    @FXML Label fileChooseWarning;
-    @FXML Label parseWarning;
+    @FXML Label warningText;
+    @FXML Circle infoCircle;
     
-
+    Color accent = Color.web("#aaa");
     
     void start(Stage stage) {
         this.stage = stage;
+        warningText.setTextFill(accent);
+        infoCircle.setFill(accent);
     }
     
     @FXML
@@ -39,14 +42,18 @@ public class EvansSAXXmlParserController implements Initializable {
         fileChooser.setTitle("Open Resource File");
         File xmlSource = fileChooser.showOpenDialog(stage);
         if(!"xml".equals(getFileType(xmlSource))){
-            fileChooseWarning.setText("File not accepted.  Please select an XML file.");
-            fileChooseWarning.setTextFill(Color.RED);
+            warningText.setText("File \""+xmlSource.getName()+"\" not accepted.  Please select an XML file.");
+            accent = Color.web("#F44336");
+            warningText.setTextFill(accent);
+            infoCircle.setFill(accent);
             parseButton.setDisable(true);
 
         }else{
             model.setXML(xmlSource);
-            fileChooseWarning.setText("File accepted.");
-            fileChooseWarning.setTextFill(Color.GREEN);
+            warningText.setText("File \""+xmlSource.getName()+"\" accepted.");
+            accent = Color.web("#4CAF50");
+            warningText.setTextFill(accent);
+            infoCircle.setFill(accent);
             parseButton.setDisable(false);
 
         }
@@ -56,12 +63,16 @@ public class EvansSAXXmlParserController implements Initializable {
     private void handleParse(ActionEvent event) {
         if(model.getXML() == null) {
             parseButton.setDisable(true);
-            parseWarning.setText("XML file not loaded.  Please choose XML file.");
-            parseWarning.setTextFill(Color.RED);
+            warningText.setText("XML file not loaded.  Please choose XML file.");
+            accent = Color.web("#F44336");
+            warningText.setTextFill(accent);
+            infoCircle.setFill(accent);
             return;
         }
-        parseWarning.setText("Started parsing.");
-        parseWarning.setTextFill(Color.BLUE);
+        warningText.setText("Started parsing.");
+        accent = Color.web("#3F51B5");
+        warningText.setTextFill(accent);
+        infoCircle.setFill(accent);
 
 
         // Do the parsing
@@ -73,6 +84,7 @@ public class EvansSAXXmlParserController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         model = new EvansSAXXmlParserModel();
         parseButton.setDisable(true);
+        warningText.setTextFill(accent);
     }
     
     private String getFileType(File input) {

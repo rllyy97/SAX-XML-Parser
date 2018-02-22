@@ -12,12 +12,14 @@ public class EvansSAXXmlParser extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-
+        
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("EvansSAXXmlParserView.fxml"));
         Parent root = fxmlloader.load();
         EvansSAXXmlParserController controller = (EvansSAXXmlParserController) fxmlloader.getController();
 
         Scene scene = new Scene(root);
+        stage.setTitle("SAX XML Parser");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
         

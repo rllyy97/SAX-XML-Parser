@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,19 +10,31 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="evanssaxxmlparser.EvansSAXXmlParserController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="evanssaxxmlparser.EvansSAXXmlParserController">
    <children>
-      <Button fx:id="fileChooseButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleFileChoose" prefHeight="30.0" prefWidth="100.0" text="Choose File" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
-      <Label fx:id="fileChooseWarning" layoutX="107.0" layoutY="18.0" text="" textFill="RED" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="27.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="240.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="520.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <effect>
+            <DropShadow blurType="TWO_PASS_BOX" color="#00000068" height="15.0" offsetY="2.0" radius="7.0" width="15.0" />
+         </effect>
+      </Rectangle>
+      <Button fx:id="fileChooseButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleFileChoose" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 5; -fx-font-weight: bold;" text="Choose File" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <effect>
+            <DropShadow blurType="TWO_PASS_BOX" color="#00000080" height="15.0" offsetY="2.0" radius="7.0" width="15.0" />
+         </effect></Button>
+      <Label fx:id="warningText" layoutX="314.0" layoutY="37.0" text="Choose a file to begin" textFill="#aaaaaa" AnchorPane.leftAnchor="314.0" AnchorPane.topAnchor="37.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="parseButton" layoutX="14.0" layoutY="53.0" mnemonicParsing="false" onAction="#handleParse" prefHeight="30.0" prefWidth="100.0" text="Parse" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="70.0" />
-      <Label fx:id="parseWarning" layoutX="117.0" layoutY="28.0" text="" textFill="RED" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="77.0">
+      <Button fx:id="parseButton" layoutX="140.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleParse" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 5; -fx-font-weight: bold;" text="Parse" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="20.0">
+         <effect>
+            <DropShadow blurType="TWO_PASS_BOX" color="#00000080" height="15.0" offsetY="2.0" radius="7.0" width="15.0" />
+         </effect></Button>
+      <Circle fx:id="infoCircle" fill="#aaaaaa" layoutX="286.0" layoutY="46.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Text fill="WHITE" layoutX="283.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="i">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
-      </Label>
+      </Text>
    </children>
 </AnchorPane>
