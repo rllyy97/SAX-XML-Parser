@@ -24,9 +24,6 @@ public class EvansSAXXmlParser extends Application {
         controller.start(stage);
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         launch(args);
     }
