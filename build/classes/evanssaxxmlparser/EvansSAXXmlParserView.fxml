@@ -10,7 +10,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="evanssaxxmlparser.EvansSAXXmlParserController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #EEE;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="evanssaxxmlparser.EvansSAXXmlParserController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="240.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="520.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
          <effect>
@@ -36,5 +36,14 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="490.0" layoutX="10.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="760.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="90.0">
+         <effect>
+            <DropShadow blurType="TWO_PASS_BOX" color="#00000068" height="15.0" offsetY="2.0" radius="7.0" width="15.0" />
+         </effect>
+      </Rectangle>
+      <TextArea fx:id="displayBox" editable="false" layoutX="30.0" layoutY="100.0" prefHeight="470.0" prefWidth="740.0" promptText="Parsed XML will appear here." style="-fx-border-color: #FFF; -fx-background-color: #FFF;" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="100.0">
+         <effect>
+            <InnerShadow blurType="TWO_PASS_BOX" color="#00000066" height="10.0" offsetY="2.0" radius="4.5" width="10.0" />
+         </effect></TextArea>
    </children>
 </AnchorPane>

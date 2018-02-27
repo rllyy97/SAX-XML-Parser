@@ -31,9 +31,16 @@ public class EvansHandler extends DefaultHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+//        System.out.println(uri);
+//        System.out.println(localName);
+//        System.out.println(qName);
+//        System.out.println(attributes);
+        
         node = new XMLNode();
-        node.setName(localName);
-        node.setAttributes(attributes);
+        node.setName(qName);
+        for(int i = 0; i < attributes.getLength(); i++) {
+            node.attributes.put(attributes.getQName(i),attributes.getValue(i));
+        }
         stack.push(node);
 
         if(currentNode != null)
@@ -58,7 +65,11 @@ public class EvansHandler extends DefaultHandler {
 
     @Override
     public void characters(char ch[], int start, int length) throws SAXException {
-           currentNode.setContent(Arrays.toString(ch));
+        String content = new String(ch,start,length);
+        if(!content.matches(".*\\w.*")){
+            content = "";
+        }
+        currentNode.setContent(content);
     }
     
 }
