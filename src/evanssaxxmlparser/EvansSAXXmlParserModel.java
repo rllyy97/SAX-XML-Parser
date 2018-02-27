@@ -30,8 +30,12 @@ public class EvansSAXXmlParserModel {
         SAXParser saxParser = factory.newSAXParser();
         
         EvansHandler handler = new EvansHandler();
+        try {
+            saxParser.parse(xmlSource, handler);
+        } catch (IOException | SAXException e) {
+            return null;
+        }
         
-        saxParser.parse(xmlSource, handler);
         return handler.getRoot();
     }
 }

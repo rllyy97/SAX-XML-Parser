@@ -52,7 +52,9 @@ public class EvansSAXXmlParserController implements Initializable {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Resource File");
         File xmlSource = fileChooser.showOpenDialog(stage);
-        if(!"xml".equals(getFileType(xmlSource))){
+        if(xmlSource == null) {
+            return;
+        } else if(!"xml".equals(getFileType(xmlSource))){
             updateWarning(red,"File \""+xmlSource.getName()+"\" not accepted.  Please select an XML file.");
             parseButton.setDisable(true);
         } else {
@@ -74,6 +76,11 @@ public class EvansSAXXmlParserController implements Initializable {
         updateWarning(blue,"Started Parsing.");
 
         root = model.parse(model.getXML());
+        
+        if(root == null){
+            updateWarning(red,"An error occured.  File may be empty. Try another file.");
+            return;
+        }
         
         printTree(root,0);
         
